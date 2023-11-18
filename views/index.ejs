@@ -1,16 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Blog Post</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div class="container bg-danger">
-        <div class="row">
-            <div class="col-12 p-5 bg-success">this is index</div>
+    
+    <header id="main-header" class="header">
+        <div class="background-div"></div>
+        <div class="header-content">
+            <div class="header-logo logo">
+                <a href="/">
+                    <img src="/img/logo.jpg" alt="">
+                </a>
+            </div>
+            <div class="header-buttons">
+                <a href="/users/signup" class="sign-in" id="signin">SIGNIN</a>
+                <a href="/users/login" class="cta">Create Your Blog</a>
+            </div>
         </div>
+    </header>
+
+    <main>
+        <section class="main-section">
+            <header>
+                <h2>Visualize your passions</h2>
+                <p>Create a beautiful blog for youself</p>
+                <a href="/users/login/" class="cta">Create your own blog</a>
+            </header>
+            <div class="background " id="main-section-background">
+                <div class="first-background background-image active">
+                    <img src="/img/main-section.avif" alt="">
+                </div>
+                <div class="second-background background-image">
+                    <img src="/img/main-background-2.jpg" alt="" title="Image by senivpetro on Freepik">
+                </div>
+            </div>
+        </section>
+        <section class="design-section">
+            <header>
+                <h2>Unleash Your Creativity: Designing Posts, Tailoring Expression</h2>
+                <p>Unleash your unique style by crafting visually stunning narratives, seamlessly blending creativity with expression. Dive into a world where design isn't just a feature—it's the heart of your storytelling adventure."</p>
+            </header>
+            <div class="background">
+                <img src="/img/design-backgound.jpg" alt="">
+            </div>
+        </section>
+        <section class="memories-section">
+            <header>
+                <h2>Showcase your Memories and Thoughts</h2>
+                <p>Experience the power of sharing memories with others. Explore the depths of your mind and journey through cherished memories as we showcase the essence of your thoughts</p>
+            </header>
+            <div class="background">
+                <img src="/img/memories2.jpg" alt="">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <div class="footer-links">
+                <ul>
+                    <li><h3>Help</h3></li>
+                    <li><a href="">Help Center</a></li>
+                    <li><a href="">Help Forum</a></li>
+                    <li><a href="">Tutorials</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <h3>Community</h3>
+                    </li>
+                    <li><a href="">Our Community</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <h3>For Us</h3>
+                    </li>
+                    <li><a href="">API</a></li>
+                    <li><a href="">Forum</a></li>
+                </ul>
+            </div>
+        </section>
+    </footer>
+    <div class="copyright">
+        <span>© 2023 Anshul Kumar | All rights reserved</span>
     </div>
     
+    <script src="/js/script.js"></script>
 </body>
 </html>
