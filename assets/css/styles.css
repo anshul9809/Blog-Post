@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
+    scroll-behavior: smooth !important;
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -13,7 +14,7 @@ body{
     font-smoothing: always;
     font-size: 100%;
     background-color: #2f454f;
-    color: #2f454f;
+    color: #e4e4e4;
     font-size: .875rem;
     line-height: 1.66;
     font-weight: 400;
@@ -27,6 +28,8 @@ img{
     width: 100%;
     height: 100%;
 }
+
+/* header starts */
 .header{
     color: #fff;
     width: 100%;
@@ -61,6 +64,10 @@ img{
     box-sizing: border-box;
     padding: 5px;
 }
+.header-buttons{
+    display: flex;
+    align-items: center;
+}
 .header-content .header-buttons a{
     margin-right: 10px;
     padding: 10px;
@@ -83,6 +90,56 @@ a.cta:hover{
     box-shadow: 0px 0px 7px #0f0f0f;
     
 }
+nav.navigation ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+    position: relative;
+    font-size: 1.3rem;
+}
+nav.navigation ul a{
+    color: #e6b684;
+    transition: all ease-in-out 0.3s;
+}
+nav.navigation ul a:hover{
+    color: white;
+    color: var(--a-front-color);
+    font-size: 1.4rem;
+}
+nav.navigation ul:hover a:not(:hover){
+    filter: blur(1px);
+}
+
+.hamburger-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  display: none;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* header ends */
+
 main section{
     min-width: 100vw;
     max-width: 100vw;
@@ -90,11 +147,11 @@ main section{
     overflow: hidden;
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 main .main-section{
     padding-top: 80px;
+    justify-content: center;
 }
 main .main-section header{
     display: flex;
@@ -135,6 +192,7 @@ main .main-section .background .second-background{
     height: 100%;
     position: absolute;
     left: 0;
+    top: 100%;
 }
 main .main-section .background-image.active{
     top: 0;
@@ -176,6 +234,249 @@ section.memories-section .background{
     left: 0;
     z-index: 1;
 }
+
+section.about-us{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    justify-content: center;
+}
+section.about-us .about-container{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 30px;
+}
+.about-container h2{
+    font-size: 3rem;
+    text-align: center;
+}
+section.about-us .about-container .article-image{
+    width: 100%;
+    height: 80vh;
+    place-self: center;
+}
+.article-image img{
+    object-fit: cover;
+}
+.about-container p{
+    font-size: 1.5rem;
+}
+
+section.contact-background-section{
+    background: url("../img/contact_image.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 30rem;
+    max-height: 30rem;
+    position: relative;
+}
+section.contact-background-section h2{
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 10px black;
+}
+section.contact-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+section.contact-section .contact-form-description{
+    color: white;
+    width: 100%;
+    min-height: 20rem;
+    position: relative;
+    margin-top: -10px;
+    overflow: hidden;
+    background: #ff8000;
+    display: grid;
+}
+.contact-form-description::before,
+.contact-form-description::after{
+    content: "";
+    position: absolute;
+    background-color: #2f454f;
+    width: 50%;
+    height: 50%;
+    bottom: -5px;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+.contact-form-description::before{
+    left: 0;
+    transform: rotateY(180deg);
+}
+.contact-form-description::after{
+    right: 0;
+}
+.contact-form-description p{
+    box-sizing: border-box;
+    width: 30%;
+    place-self: center;
+    font-size: 1.3rem;
+    text-align: center;
+}
+section.contact-section .form-wrapper{
+    width: 50%;
+    display: flex;
+}
+section.contact-section form{
+    width: 100%;
+    margin: 32px 0;
+}
+.form-wrapper form .form-row{
+    box-sizing: border-box;
+    margin: 32px 0;
+    display: flex;
+}
+.form-row .input-wrapper{
+    width:100%;
+    position: relative;
+    margin: 0px 10px;
+    font-size: 1rem;
+}
+.form-row .input-wrapper input,
+.form-row .input-wrapper select,
+.form-row .input-wrapper textarea{
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+    background-color: transparent;
+    color: white;
+}
+.form-row .input-wrapper input::placeholder,
+.form-row .input-wrapper textarea::placeholder{
+    background-color: transparent;
+    color: transparent;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button   { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.form-row .input-wrapper label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 11px;
+    display: block;
+    transition: all ease-in-out 0.3s;
+    font-size: 1.2rem;
+    pointer-events: none;
+    color: white;
+}
+.form-row .input-wrapper select option{
+    color: black;
+}
+
+.form-row .input-wrapper select{
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.input-wrapper input:focus ~ label,
+.input-wrapper input:valid ~ label,
+.input-wrapper input:not(:placeholder-shown) ~ label,
+.input-wrapper textarea:focus ~ label,
+.input-wrapper textarea:valid ~ label,
+.input-wrapper textarea:not(:placeholder-shown) ~ label{
+    transform: translateY(-35px) translateX(-10px);
+    color: #f0f0f0;
+    font-size: 1rem;
+}
+
+.form-row .input-wrapper textarea{
+    resize: none;
+    height: 100px;
+
+}
+.input-wrapper .underline{
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+}
+.input-wrapper .underline::before{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    top: 0;
+    background: #ff8000;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+.input-wrapper input:focus + .underline:before,
+.input-wrapper input:valid  + .underline:before,
+.input-wrapper textarea:focus + .underline:before,
+.input-wrapper textarea:valid  + .underline:before{
+transform: scaleX(1);
+}
+
+.input-wrapper button{
+    text-transform: uppercase;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+    background-size: 300% 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 2px 1px black;;
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 2px 10px 0 #f5ce62;
+}
+.input-wrapper button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px #f5ce62;
+}
+.input-wrapper button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+.input-wrapper button::after {
+    background-color: #f5ce62;
+}
+.input-wrapper button:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+.valid{
+    border: 1px solid green !important;
+}
+.invalid{
+    border: 1px solid red !important;
+}
+
+
+
+
+
+
+
+/* footer starts here */
+
 footer{
     padding: 3rem 0;
     color: #cbd1d3;
@@ -200,33 +501,27 @@ footer li {
     margin: 0;
     list-style: none;
 }
-
 footer ul li h3 {
     font-weight: 600;
     color: #fff;
     font-size: 1.3rem;
 }
-
 footer ul li a {
     color: #cbd1d3;
     font-size: 1.1rem;
 }
-
 footer ul li a:hover {
     color: #fff;
     text-decoration: none;
 }
-
 footer ul li a:focus {
     color: #fff;
     background: rgba(0, 0, 0, .2);
 }
-
 footer section{
     max-width: 85%;
     min-width: 85%;
 }
-
 .copyright{
     padding: 20px;
     color: #cbd1d3;
@@ -237,8 +532,56 @@ footer section{
     section.memories-section header{
         width: 70%;
     }
+    section.contact-section .form-wrapper{
+        width: 80%;
+    }
 }
 @media (max-width: 768px){
+    header nav.navigation{
+        transform: translateX(-100%);
+        position: absolute;
+        width: 100%;
+        padding-top: 4rem;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.4);
+        transition: all ease-in-out .5s;
+    }
+    nav.navigation ul li{
+        display: block;
+        transition: all ease-in-out 0.5s;
+        opacity: 0;
+    }
+    nav.navigation.show ul li:nth-child(1){
+        transition-delay: 0.2s;
+        opacity: 1;
+    }
+    nav.navigation.show ul li:nth-child(2){
+        opacity: 1;
+        transition-delay: 0.4s;
+    }
+    nav.navigation.show ul li:nth-child(3){
+        opacity: 1;
+        transition-delay: 0.6s;
+    }
+    nav.navigation.show ul li:nth-child(4){
+        opacity: 1;
+        transition-delay: 0.8s;
+    }
+    nav.navigation.show ul li:nth-child(5){
+        opacity: 1;
+        transition-delay: 1.0s;
+    }
+    nav.navigation.show ul li:nth-child(6){
+        opacity: 1;
+        transition-delay: 1.2s;
+    }
+    .hamburger-container{
+        display: block;
+    }
+    nav.navigation.show{
+        transform: translateX(0);
+    }
     main section{
         min-height: 30rem;
     }
@@ -267,4 +610,36 @@ footer section{
     footer section ul{
         width: 50%;
     }
+    section.about-us .about-container{
+        width: 90%;
+    }
+    .about-container p{
+        font-size: 1.2rem;
+    }
+    .contact-form-description p{
+        font-size: 1rem;
+        width: 90%;
+    }
+    .contact-form-description::before,
+    .contact-form-description::after{
+        height: 20%;
+    }
+    .form-wrapper form .form-row{
+        display: block;
+        margin: 0;
+    }
+    .form-row .input-wrapper{
+        margin: 10px 0;
+    }
+    
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
 }

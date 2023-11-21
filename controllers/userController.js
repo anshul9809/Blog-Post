@@ -1,11 +1,11 @@
-const user = require("../models/blogUser");
-const blog = require("../models/posts");
+const User = require("../models/blogUser");
+const Blog = require("../models/posts");
 
 
 //signin and creating the session
 module.exports.CreateSession = function (req, res) {
     req.flash("success", "Login Successfull");
-    return res.redirect("/");
+    return res.redirect("/users");
 };
   
 // signing out the user
@@ -19,6 +19,36 @@ module.exports.signout = function (req, res) {
         
     });
 };
+//creating the new user
+module.exports.createUser = async function(req,res){
+    try{
+        if(req.body.password !== req.body.confirm_password){
+            req.flash("error", "Password and confirm password are not same");
+            return res.redirect("back");
+        }
+
+        const user = await User.findOne({email: req.body.email});
+        if(!user){
+            const newUser = new User({
+                username : req.body.username,
+                email: req.body.email,
+                password: req.body.password
+            });
+            let result = await newUser.save();
+            if(!result){
+                throw Error('Error in saving data to database')
+            }
+            else{
+                req.flash("success", "User created successfully. Please LogIn");
+                res.redirect("/users/login");
+            }
+        }
+    }
+    catch(error){
+        req.flash("error", "Error while creating the new user");
+        return res.redirect("back")
+    }
+}
 
 // rendering the sign In page
 module.exports.login = function (req, res) {
@@ -46,6 +76,6 @@ module.exports.home = (req,res)=>{
         return res.redirect("/users/login");
     }
     else{
-        return res.send("not working");
+        return res.render("users/home");
     }
 }

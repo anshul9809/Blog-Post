@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/login.css">
 </head>
-<body>
-    this is signup
+<body style="font-size: 0.9rem">
+    <div class="form-wrapper">
+        <img src="/img/logo.jpg" alt="">
+        <h2>SIGNUP</h2>
+        <form action="/users/create" class="login-form" method="post" id="signup-form">
+            <div class="input-wrapper">
+                <input type="email" id="email" name="email" class="input-field" placeholder="email" required>
+                <label for="email">Email</label>
+                <div class="checkbox-div"><input type="checkbox" id="checkbox" name="checkbox"> <label for="checkbox">Use email as username</label></div>
+                <div class="errors">
+                    <span class="error-description" id="email-error-description"></span>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" id="username" name="username" class="input-field" placeholder="useranme" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-wrapper">
+                <input type="password" id="password" name="password" class="input-field" placeholder="password" required>
+                <label for="username">Password</label>
+                <div class="togglePassword" id="togglePassword">
+                    <i class="fa fa-eye open"></i>
+                    <i class="fa fa-eye-slash close active"></i>
+                </div>
+                <div class="errors">
+                    <span id="error-description" class="error-description"></span>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <input type="password" id="confirm-password" name="confirm_password" class="input-field" placeholder="Confirm Password" required>
+                <label for="password">Confirm Password</label>
+            </div>
+            <div class="submit-button">
+                <button type="submit">SIGNUP</button>
+            </div>
+        </form>
+        <div class="account" style="margin: 0;">
+            <span>Already Registered? </span>  <a href="/users/login"> Login</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <%- include('partials/flashMessages') %>
+    <script src="/js/form.js"></script>
 </body>
 </html>

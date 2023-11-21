@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog Post | About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <%-include("partials/header")%>
+    
+    <main>
+        <section class="about-us">
+            <div class="about-container">
+                <h2>About Us</h2>
+                <div class="article-image">
+                    <img src="/img/shoesAbout.jpg" alt="Men looking out the window" title="Image by Freepik" />
+                </div>
+                <p>Welcome to BLOG, your premier destination for all things blogging. Based in Delhi, DL, we are passionate aabout providing a platform for bloggers to express their creativiy, share their knowledge, adn connect with like-minded individuals from around the world. <br> <br>
+
+                    With our user-friendly interface, extensive rnge of features, and desdicated support team, we strive to make blogging accessible to everyone. Whether you are a seasoned writer or just starting your blogging journey, we haev the tools and resources to hellp you succeed. Join our community today und unlock the endless possibilities of the blogging world!</p>
+            </div>
+        </section>
+    </main>
+
+    <%-include("partials/footer")%>
+    <%- include('partials/flashMessages') %>
+    <script src="/js/script.js"></script>
+    
+</body>
+</html>

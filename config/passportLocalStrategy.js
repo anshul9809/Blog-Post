@@ -1,18 +1,18 @@
 //PASSPORT LOCAL STRATEGY IN OUR REQUEST
 const passport = require('passport');
 const LocalStrategy   = require("passport-local").Strategy;
+const bcrypt = require("bcryptjs");
 
 const User = require('../models/blogUser');
 
 passport.use(new LocalStrategy({
-    usernameField: 'email'
+    usernameField: 'username'
     },
-    function (email, password, done) {
+    function (username, password, done) {
         //finding the user and establishing the identity
-        User.findOne({email: email})
+        User.findOne({username: username})
         .then(user => {
-            if (!user || user.password != password) {
-                console.log('Invalid Username or Password');
+            if (!user || !(bcrypt.compare(password, user.password))) {
                 return done(null, false);
             }
             return done(null, user);

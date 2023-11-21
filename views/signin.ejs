@@ -2,11 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <a href="/users/signup">singup</a>
-    this is signin
+    <div class="form-wrapper">
+        <img src="/img/logo.jpg" alt="">
+        <h2>LOGIN</h2>
+        <form action="/users/create-session" method="post" class="login-form">
+            <div class="input-wrapper">
+                <input type="text" id="username" name="username" class="input-field" placeholder="useranme" required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-wrapper">
+                <input type="password" id="password" name="password" class="input-field" placeholder="Password" required>
+                <label for="password">Password</label>
+                <div class="togglePassword" id="togglePassword">
+                    <i class="fa fa-eye open"></i>
+                    <i class="fa fa-eye-slash close active"></i>
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit">LOGIN</button>
+            </div>
+            <div class="forgotten">
+                <span>Forgot Password |  </span> <a href="#" style="pointer-events: none" disabled> Click here</a>
+            </div>
+        </form>
+        <div class="account">
+            <span>Register | </span>  <a href="/users/signup"> Signup</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <%- include('partials/flashMessages') %>
+    <script src="/js/form.js"></script>
 </body>
 </html>

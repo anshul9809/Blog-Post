@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+a{
+    color: #C0C0FF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) ), url('../img/login.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", "Sans-serif";
+    color: #f0f0f0;
+    backdrop-filter: blur(20px);
+    transition: all .5s ease-in-out;
+}
+.form-wrapper{
+    width: 30%;
+    min-height: 60vh;
+    max-height: 95vh;
+    box-sizing: border-box;
+    padding: 10px 30px 24px;
+    border-radius: 30px;
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(0.1px);
+    box-shadow: 1px 1px 1px white;
+}
+.form-wrapper>img{
+    width: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.form-wrapper h2{
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+.form-wrapper .login-form{
+    width: 100%;
+    display: grid;
+    gap: 25px;
+    place-items: center;
+    margin: 0;
+    color: #F2F2F2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    padding: 20px;
+}
+.form-wrapper .login-form .input-wrapper, .form-wrapper .login-form .submit-button, .form-wrapper .login-form .checkbox-div{
+    width: 100%;
+}
+.input-wrapper{
+    position: relative;
+    /* background-color: yellow; */
+}
+.login-form .input-wrapper label{
+    font-size: 1.1rem;
+    display: block;
+    width: 90%;
+    position: absolute;
+    color: #0f0f0f;
+    top: 0;
+    padding: 4px;
+    padding-left: 10px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+.login-form .input-field{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: #eeeeee;
+    border: 0;
+    padding: 0;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+}
+.login-form .input-field:focus{
+    outline: none;
+    box-shadow: 0px 0px 3px #f0f0f0;
+    letter-spacing: 1px;
+}
+.input-field::placeholder{
+    background: transparent;
+    color: transparent;
+}
+.login-form .input-field:focus + label,
+.login-form .input-field:valid + label,
+.input-field:not(:placeholder-shown) + label{
+    transform: translateY(-25px) translateX(-10px);
+    color: #f0f0f0;
+    font-size: 1rem;
+}
+.input-wrapper .checkbox-div{
+    position: relative;
+    box-sizing: border-box;
+    padding:7px;
+    margin-bottom: -10px;;
+}
+.input-wrapper .checkbox-div label{
+    position: absolute;
+    display: inline;
+    top: 0;
+    color: #f0f0f0;
+    cursor: pointer;
+    pointer-events: all;
+}
+.login-form .input-wrapper .togglePassword{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
+}
+.login-form .input-wrapper .open,
+.login-form .input-wrapper .close{
+    color: #2b2a2a;
+    cursor: pointer;
+    display: none;
+}
+.login-form .input-wrapper .open.active,
+.login-form .input-wrapper .close.active{
+    display: block;
+}
+.login-form .submit-button button{
+    width: 100%;
+    height: 45px;
+    background-color: #685aff;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.account,.forgotten{
+    font-size: 1.1rem;
+}
+.errors .error-description{
+    font-size: 0.75rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.valid{
+    border: 1px solid green !important;
+}
+.invalid{
+    border: 1px solid red !important;
+}
+
+
+
+@media (max-width: 980px){
+    .form-wrapper{
+        width: 50%;
+    }
+}
+@media (max-width: 576px){
+    .form-wrapper{
+        width: 90%
+    }
+}

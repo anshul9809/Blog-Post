@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog Post | Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <%-include("partials/header")%>
+    
+    <main>
+       <section class="contact-background-section">
+            <h2>Contact Us</h2>
+       </section>
+       <section class="contact-section">
+            <div class="contact-form-description">
+                <p>If you have any questions or need help with anything related to our blog posts, please feel free to contact us! We're here to help.
+                    <br>
+                    Use the contact form given below to drop us an E-mail.
+                </p>
+            </div>
+            <div class="form-wrapper">
+                <form action="/submit-complaint" method="POST" onsubmit="return validateForm(this)">
+                    <div class="form-row">
+                        <div class="input-wrapper"><input type="text" name="firstName" id="firstName" placeholder="first name" required>
+                            <div class="underline"></div>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="text" name="lastName" id="lastName" placeholder="Last name" required>
+                            <div class="underline"></div>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-wrapper"><input type="email" name="email" id="email" placeholder="email" required>
+                            <div class="underline"></div>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="number" name="number" id="number" placeholder="Number" required>
+                            <div class="underline"></div>
+                            <label for="number">Contact Number</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-wrapper">
+                            <input type="text" name="subject" id="subject" placeholder="subject" required>
+                            <div class="underline"></div>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="input-wrapper">
+                            <select name="role" id="role">
+                                <option value="null">Select your role</option>
+                                <option value="blogger">Blogger</option>
+                                <option value="developer">Developer</option>
+                            </select>
+                            <div class="underline"></div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-wrapper">
+                            <textarea name="comments" id="comments" cols="30" rows="10" placeholder="comments" required></textarea>
+                            <div class="underline"></div>
+                            <label for="comments">Comments</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-wrapper">
+                            <button type="submit">Send it</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+       </section>
+    </main>
+
+    <%-include("partials/footer")%>
+    <%- include('partials/flashMessages') %>
+    <script src="/js/script.js"></script>
+</body>
+</html>
