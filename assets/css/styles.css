@@ -470,6 +470,63 @@ transform: scaleX(1);
 }
 
 
+/* services page starts*/
+
+section.service-section-background{
+    background: url("../img/services1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 30rem;
+    max-height: 30rem;
+    position: relative;
+}
+section.service-section-background h2{
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+    color: #e4e4e4;
+    text-shadow: 1px 1px 10px black;
+    letter-spacing: 4px;
+}
+.service-wrapper{
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    display: flex;    
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.service-wrapper .service-box{
+    flex: 0 0 400px;
+    min-height: 30rem;
+    position: relative;
+}
+.service-box img{
+    object-fit: cover;
+    position: relative;
+}
+.service-box .service-box-content{
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.8);
+    line-height: 2.5rem;
+    padding: 10px;
+    color: #e4e4e4;
+    text-align: center;
+    font-size: 1.5rem;
+    min-height: 60%;
+}
+.service-box .service-box-content h3{
+    font-size: 2rem;
+    word-spacing: 5px;
+}
+
+
+/* servvices page ends */
+
 
 
 
@@ -632,14 +689,4 @@ footer section{
         margin: 10px 0;
     }
     
-}
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-100%);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
 }

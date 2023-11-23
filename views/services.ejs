@@ -13,11 +13,38 @@
     <%-include("partials/header")%>
     
     <main>
-        Services
+        <section class="service-section-background">
+            <h2>Services</h2>
+        </section>
+        <section class="service-main-content">
+            <div class="service-wrapper">
+                <div class="service-box">
+                    <img src="/img/service-box-1.png" alt="">
+                    <div class="service-box-content">
+                        <h3>Content Strategy and Creation</h3>
+                        <p>Crafted engaging and informative blog content tailored to the target audience, booating website traffic and brand exposure.</p>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <img src="/img/service-box-2.jpg" alt="">
+                    <div class="service-box-content">
+                        <h3>SEO Optimization and Link Building</h3>
+                        <p>Utilized effective SEO techniques and quality backlinks to increase organic search rankings and drive qualified traffic.</p>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <img src="/img/service-box-3.jpg" alt="">
+                    <div class="service-box-content">
+                        <h3>Socila Media Management</h3>
+                        <p>Managed and executive social media campaigns, driving audience engagements, and increasing brand visibility and followers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <%-include("partials/footer")%>
     <%- include('partials/flashMessages') %>
-    
+    <script src="/js/script.js"></script>
 </body>
 </html>
