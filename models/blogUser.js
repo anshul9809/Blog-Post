@@ -22,10 +22,10 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.pre('save', async function (next) {
     const user = this;
-  
     // Only hash the password if it's modified
-    if (!user.isModified('password')) return next();
-  
+    if (!user.isModified('password')){
+        return next();
+    }
     try {
         // Generating a salt
         const salt = await bcrypt.genSalt(10);

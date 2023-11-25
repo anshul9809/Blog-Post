@@ -23,11 +23,11 @@ if(checkbox){
         const usernameField = document.getElementById("username");
         if(checkbox.checked){
             usernameField.value = document.getElementById("email").value;
-            usernameField.disabled = true;
+            usernameField.setAttribute('readonly', true);
         }
         else{
             usernameField.value = "";
-            usernameField.disabled = false;
+            usernameField.removeAttribute('readonly');
         }
     });
 }
