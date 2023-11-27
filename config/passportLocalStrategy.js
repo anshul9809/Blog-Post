@@ -29,7 +29,7 @@ passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
 
-// Deserializing user from the key in the 
+// Deserializing user from the key in the cookie
 
 passport.deserializeUser(function (id, done) {
     User.findById(id)
@@ -56,7 +56,10 @@ passport.checkAuthentication = function (req, res, next) {
 passport.setAuthenticatedUser = function (req, res, next) {
     if(req.isAuthenticated()){
       // req.user contains the current signed in user from the session cookie and we are just sending this to the locals for the views
-      res.locals.user = req.user;
+        const userWithoutPassword = { ...req.user.toObject() };
+        delete userWithoutPassword.password;
+        res.locals.user = userWithoutPassword;
+        // console.log("new locals is ", res.locals.user);
     }
-    next();
+    return next();
 };

@@ -32,7 +32,8 @@ app.use(
         },
         store: MongoStore.create(
             {
-            mongoUrl:'mongodb+srv://mongo:mongo@anshulcluster.k7iipbc.mongodb.net/',
+            // mongoUrl:'mongodb+srv://mongo:mongo@anshulcluster.k7iipbc.mongodb.net/',
+            mongoUrl: "mongodb://localhost:27017/BlogPost",
             autoRemove: 'disabled',
             mongooseConnection:db,
             collectionName:"sessions"

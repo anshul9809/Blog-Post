@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
 
+//schema for  handling socialMedia links
+const socialMediaSchema = new mongoose.Schema({
+    platform: String,
+    link: String,
+});
+
+
 const UserSchema = new mongoose.Schema({
     username:{
         type: String,
@@ -14,7 +21,26 @@ const UserSchema = new mongoose.Schema({
     password:{
         type: String,
         required:true
-    }
+    },
+    name:{
+        type: String,
+        default: "Blog User",
+    },
+    noOfBlogs:{
+        type: Number,
+        default: 0,
+    },
+    typeOfBlogs:{
+        type: String,
+        default: "Blogs",
+    },
+    hasMoreInfo:{
+        type: Boolean,
+        default: false,
+    },
+    socialMedia: [socialMediaSchema],
+    //setup dynamic links for social media links of user
+
 },
 {
     timestamps: true

@@ -1,5 +1,6 @@
 const User = require("../models/blogUser");
 const Blog = require("../models/posts");
+const passport = require("passport");
 
 
 //signin and creating the session
@@ -19,6 +20,8 @@ module.exports.signout = function (req, res) {
         
     });
 };
+
+
 //creating the new user
 module.exports.createUser = async function(req,res){
     try{
@@ -27,8 +30,8 @@ module.exports.createUser = async function(req,res){
             return res.redirect("back");
         }
 
-        const user = await User.findOne({email: req.body.email});
-        if(!user){
+        const existingUser = await User.findOne({email: req.body.email});
+        if(!existingUser){
             const newUser = new User({
                 username : req.body.username,
                 email: req.body.email,
@@ -39,14 +42,28 @@ module.exports.createUser = async function(req,res){
                 throw Error('Error in saving data to database')
             }
             else{
-                req.flash("success", "User created successfully. Please LogIn");
-                res.redirect("/users/login");
+                //to directly log the user in after registration
+                console.log("Result is ", result);
+                req.login(newUser, async (err)=>{
+                    if(!newUser.hasMoreInfo){
+                        return res.redirect("/users/moreInfo");
+                    }
+                    else{
+                        return res.redirect("/users");
+                    }
+                });
             }
+        }
+        else{
+
+            req.flash("error", "User already exists");
+            return res.redirect("/users/login");
         }
     }
     catch(error){
+        console.log("error in catch ", error);
         req.flash("error", "Error while creating the new user");
-        return res.redirect("back")
+        return res.redirect("/users/signup")
     }
 }
 
@@ -77,5 +94,54 @@ module.exports.home = (req,res)=>{
     }
     else{
         return res.render("users/home");
+    }
+}
+
+
+//for getting more info from user
+module.exports.moreInfo = (req,res)=>{
+    if(!req.isAuthenticated()){
+        return res.redirect("/users/login");
+    }
+    else{
+        return res.render("users/userInfo");
+    }
+}
+
+//function to update some info of user
+module.exports.addMoreInfo = async (req,res)=>{
+    if(!req.isAuthenticated()){
+        return res.flash("error","Please Login");
+        return res.redirect("/users/login");
+    }
+    else{
+        let userId = res.locals.user._id;
+        let data = req.body;
+        let socialMedia = [];
+        const { fb, instagram, twitter } = req.body;
+        try{
+        // Check which social media links are provided and add them to the array
+            if (fb) {
+                socialMedia.push({ platform: 'Facebook', link: fb });
+            }
+            if (instagram) {
+                socialMedia.push({ platform: 'Instagram', link: instagram });
+            }
+            if (twitter) {
+                socialMedia.push({ platform: 'Twitter', link: twitter });
+            }
+            console.log("socialMedia is ", socialMedia);
+            let user = await User.updateOne({_id:userId},{$set:{name:data.name,socialMedia:socialMedia, typeOfBlogs: data.typeOfBlogs, hasMoreInfo: true}});
+            if(!user){
+                throw new Error('Error in finding user');
+            }
+            console.log("updated user is ", user);
+            req.flash("success", "Info updated successfully");
+            return res.redirect("/users/");
+
+        }
+        catch(error){
+            console.log("error in upation ", error);
+        }
     }
 }
